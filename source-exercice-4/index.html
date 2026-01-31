@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <!-- Meta viewport moderne pour activer un layout responsive sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Article long + MainNav</title>
+
+  <!-- Styles séparés (ordre important : nav isolée puis contenu) -->
+  <link rel="stylesheet" href="mainnav.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- L'attribut defer évite de bloquer le rendu initial -->
+  <script defer src="mainnav.js"></script>
+</head>
+<body>
+  <!-- Header demandé, à la racine du body -->
+  <header id="mainnav" aria-label="Navigation principale">
+    <!-- aria-label offre une description accessible du bloc de navigation
+    Les attributs ARIA (Accessible Rich Internet Applications) donnent aux lecteurs d’écran et autres outils d’accessibilité des infos que le HTML seul ne fournit pas toujours : rôle d’un élément, état (ouvert, désactivé…), relations entre composants. 
+    -->
+    <div class="mainnav__inner">
+      <div class="mainnav__title" aria-label="Identité">
+        SOGUE / MOUHAMED / 24011803
+      </div>
+
+      <button
+        class="mainnav__burger"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-controls="mainnav-drawer"
+        aria-expanded="false"
+      >
+        <!-- aria-controls & aria-expanded pilotent l'état du menu burger -->
+        <span class="mainnav__burgerBars" aria-hidden="true">
+          <span class="mainnav__bar"></span>
+          <span class="mainnav__bar"></span>
+          <span class="mainnav__bar"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Overlay + volet -->
+    <!-- data-mainnav-close + hidden servent au pilotage JS & à l'accessibilité -->
+    <div class="mainnav__overlay" data-mainnav-close tabindex="-1" hidden></div>
+
+    <aside
+      id="mainnav-drawer"
+      class="mainnav__drawer"
+      aria-label="Menu"
+      aria-hidden="true"
+      hidden
+    >
+      <!-- L'élément aside moderne héberge le tiroir de navigation -->
+      <div class="mainnav__drawerHeader">
+        <div class="mainnav__drawerTitle">Menu</div>
+        <button class="mainnav__close" type="button" aria-label="Fermer le menu" data-mainnav-close>
+          ✕
+        </button>
+      </div>
+
+      <nav class="mainnav__menu" aria-label="Liens">
+        <a class="mainnav__link" href="exercice1.html">Exercice 1</a>
+        <a class="mainnav__link" href="exercice2.html">Exercice 2</a>
+        <a class="mainnav__link" href="exercice3.html">Exercice 3</a>
+      </nav>
+
+      <div class="mainnav__drawerFooter">
+        <small>Navigation demo</small>
+      </div>
+    </aside>
+  </header>
+
+  <!-- Contenu principal (article long, multi colonnes desktop, responsive mobile) -->
+  <!-- Élément <main> moderne pour encapsuler le contenu majeur -->
+  <main class="page" id="top">
+    <!-- Article sémantique aidé par aria-label -->
+    <article class="article" aria-label="Article principal">
+      <header class="article__header" id="intro">
+        <h1 class="article__title">Titre: Design interactif</h1>
+        <p class="article__chapo">
+           Le design interactif consiste à concevoir des interfaces capables 
+          de répondre aux actions des utilisateurs. L’objectif est d’offrir une 
+          expérience fluide, intuitive et plaisante, en mettant l’accent sur 
+           l’usabilité, la cohérence visuelle et la compréhension.
+        </p>
+      </header>
+
+      <!-- Figure + figcaption constituent une paire moderne pour illustrer -->
+      <figure class="article__hero">
+        <!-- loading="lazy" diffère le chargement pour les vues hors écran -->
+        <img
+          src="Img/fond.jpg"
+          alt="Image de couverture"
+          loading="lazy"
+        />
+        <figcaption>Image de couverture illustrant le design interactif</figcaption>
+      </figure>
+
+      <!-- Section structurant chaque partie de l'article -->
+      <section class="article__body" aria-label="Texte long">
+        <h2>EXERCICE I</h2>
+        <p>
+          Pour commencer, j’ai appris à structurer une page web en HTML. L’exercice 1 m’a initié à l’organisation du contenu,
+          à l’utilisation des balises sémantiques et à l’intégration d’éléments visuels comme une image. Cette étape m’a permis
+          de comprendre la relation entre design, lisibilité et hiérarchisation de l’information, qui constitue la base du design interactif.
+        </p>
+
+        <p>
+          Cet exercice m’a également permis d’aborder la notion de structure et de hiérarchie dans le code. Grâce à l’utilisation des balises de <strong>titres 
+          (h1, h2…), des paragraphes (p) et des listes (ul, li)</strong>, j’ai compris comment organiser l’information pour qu’elle soit lisible, 
+          compréhensible et adaptée à une lecture web. Cette logique de hiérarchisation constitue un fondement essentiel du design interactif.
+        </p>
+
+        <figure class="article__float article__float--right">
+          <img src="Img/Capture1.png" alt="Illustration" loading="lazy" />
+          <figcaption>Image flottante à droite</figcaption>
+        </figure>
+
+        <p>
+          En réalisant cette première page, j’ai commencé à réfléchir à la manière dont un utilisateur interagit avec un contenu. 
+          Même si l’exercice était simple, il montre qu’un site n’est pas seulement une compilation de textes : il doit permettre à 
+          l’utilisateur de naviguer, de lire et de repérer les informations instantanément. Ce lien entre structure HTML et expérience
+          utilisateur est un premier pas vers la conception d’interfaces interactives.
+        </p>
+
+        <p>
+          Pour conclure, cet exercice constitue une introduction essentielle au travail de création sur le web. Il permet de comprendre 
+          qu’avant d’aborder des fonctions interactives plus avancées, il faut maîtriser les fondations : structurer l’information, 
+          organiser les éléments et penser à l’utilisateur. Ce premier pas ouvre la voie à une réflexion plus globale sur la manière de concevoir une interface claire, accessible et cohérente.
+        </p>
+
+        <h2>EXERCICE  II</h2>
+        <p>
+          L’exercice 2 avait pour objectif d’aborder les principes de mise en page en CSS. Après avoir appris à structurer une page dans 
+          l’exercice précédent, il s’agissait ici de manipuler l’affichage des éléments (display), l’alignement, ainsi que le comportement 
+          des images et du texte dans l’espace. Ce travail permet de comprendre comment les propriétés CSS influencent directement la lisibilité et la hiérarchie visuelle d’un contenu.
+        </p>
+
+        <figure class="article__float article__float--left">
+          <img src="Img/Capture2.png" alt="Illustration" loading="lazy" />
+          <figcaption>Image flottante à gauche</figcaption>
+        </figure>
+
+        <p>
+          Pour réaliser cet exercice, j’ai expérimenté différentes valeurs de display (inline, block, inline-block, flex) afin de 
+          modifier la position et le rendu des éléments. J’ai également appris à styliser le texte, changer les marges, centrer 
+          les images et différencier le comportement des blocs. Cette partie du travail m’a permis de traduire une maquette visuelle en code web tout en respectant des contraintes de mise en forme.
+        </p>
+
+        <p>
+          Cet exercice m’a montré l’importance du CSS dans la création d’interfaces web. Au-delà de l’esthétique, la mise en page 
+          joue un rôle essentiel dans l’organisation des informations et l’expérience de lecture. Comprendre le fonctionnement de 
+          display et de la disposition du contenu est indispensable pour pouvoir ensuite passer à des layouts plus avancés comme le flexbox ou le grid, qui seront utiles pour concevoir des pages responsives et interactives.
+        </p>
+
+        <h2 id="galerie">Galerie</h2>
+        <p>
+          Au cours du projet, plusieurs erreurs sont apparues lors de la mise en page et de 
+          l’intégration du contenu. Les captures d’écran témoignent notamment de problèmes 
+          d’affichage, de structure HTML et de paramètres CSS mal interprétés par le navigateur. 
+         
+        </p>
+
+        <!-- aria-label précise le rôle de la galerie -->
+        <div class="article__gallery" aria-label="Galerie d'images">
+          <figure class="article__card">
+            <img src="Img/G1.png" alt="Image 1" loading="lazy" />
+            <figcaption>image 01</figcaption>
+          </figure>
+          <figure class="article__card">
+            <img src="Img/G2.png" alt="Image 2" loading="lazy" />
+            <figcaption>image 02</figcaption>
+          </figure>
+          <figure class="article__card">
+            <img src="Img/G3.png" alt="Image 3" loading="lazy" />
+            <figcaption>image 03</figcaption>
+          </figure>
+          <figure class="article__card">
+            <img src="Img/G4.png" alt="Image 4" loading="lazy" />
+            <figcaption>image 04</figcaption>
+          </figure>
+        </div>
+
+        <p>
+           Ces erreurs ont permis d’identifier les points à corriger pour obtenir un rendu plus propre et cohérent.
+           es tests nous ont permis de mieux comprendre l’importance de l’organisation, de la nomenclature et de la vérification du code.
+        </p>
+
+        <h2>EXERCICE III</h2>
+        <p>
+          Dans le troisième exercice, nous avons travaillé la mise en forme avancée d’un article 
+          long en plusieurs colonnes. L’objectif était de reproduire une mise en page inspirée 
+          de la presse ou du magazine, où le texte occupe un rythme visuel différent selon la 
+          largeur de l’écran. Ce type de disposition met en évidence l’importance du CSS dans 
+          la hiérarchisation du contenu et dans la création d’une lecture plus agréable et structurée.
+        </p>
+
+        <figure class="article__wide">
+          <img src="Img/Capture3.png" alt="Illustration large" loading="lazy" />
+          <figcaption>Illustration large qui traverse la mise en page</figcaption>
+        </figure>
+
+        <p>
+          L’exercice introduisait également l’usage d’images intégrées dans le texte, 
+          avec des flottants à gauche et à droite. Cela permet de modeler la mise en 
+          page et d’intégrer visuellement l’illustration au discours. Ce travail renforce la cohérence graphique et améliore la compréhension pour le lecteur comme pour les outils d’accessibilité.
+        </p>
+
+        <p>
+          Un point essentiel de cet exercice était la notion de mise en page responsive et
+           accessible. L’article devait s’adapter aux écrans mobiles, tablettes et ordinateurs, 
+           sans perdre sa structure ni sa lisibilité. L’usage des balises modernes du web, 
+           notamment <strong>article, header, section ou main.</strong> 
+        </p>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>
+          Pour conclure, ce travail nous a permis de mieux comprendre les bases de la 
+          structuration d’une page web, l’utilisation des balises HTML et l’intégration 
+          d’éléments visuels. L’hébergement sur GitHub Pages nous a également initiés à la mise en ligne d’un projet web et au fonctionnement d’un dépôt Git.
+        </p>
+      </section>
+
+      <footer class="article__footer">
+        <a class="article__backTop" href="#top">Retour en haut</a>
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
